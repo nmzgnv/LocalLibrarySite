@@ -5,20 +5,57 @@
 {% block content %}
 <h1>Local Library Home</h1>
 
-  <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed.</p>
+<p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed.</p>
 
-<h2>Dynamic content</h2>
+<div class="row">
 
-  <p>The library has the following record counts:</p>
-  <ul>
-    <li><strong>Books:</strong> {{ num_books }}</li>
-    <li><strong>Copies:</strong> {{ num_instances }}</li>
-    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-    <li><strong>Authors:</strong> {{ num_authors }}</li>
-    <li><strong>Genres:</strong> {{ num_genres }}</li>
-    <li><strong>Books "Viy":</strong> {{ num_books_with_word }}</li>
-  </ul>
-<br>
-<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+  <div class="form-group col-sm-5 col-md-5">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/%D0%9A%D0%B8%D0%BD%D0%BE%D1%82%D0%B5%D0%B0%D1%82%D1%80_%22%D0%A0%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%22_%D0%B2_%D0%9D%D0%BE%D0%B2%D0%BE%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D1%81%D0%BA%D0%B5.JPG"
+         alt="Library" style="width:100%;">
+
+    <h2>Dynamic content</h2>
+
+    <p>The library has the following record counts:</p>
+    <ul>
+      <li><strong>Books:</strong> {{ num_books }}</li>
+      <li><strong>Copies:</strong> {{ num_instances }}</li>
+      <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+      <li><strong>Authors:</strong> {{ num_authors }}</li>
+      <li><strong>Genres:</strong> {{ num_genres }}</li>
+      <li><strong>Books "Viy":</strong> {{ num_books_with_word }}</li>
+    </ul>
+    <br>
+    <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+  </div>
+
+  <div class="form-group col-sm-6 col-md-6">
+    <div class="row">
+      <div class="form-group col-sm-6 col-md-6">
+        <img src="https://thumbs.dreamstime.com/b/%D1%81%D0%B8%D0%BD%D0%B3%D0%B0%D0%BF%D1%83%D1%80-%D0%BE%D0%B5-%D0%B8%D1%8E%D0%BB%D1%8F-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0-%D1%81%D0%B8%D0%BD%D0%B3%D0%B0%D0%BF%D1%83%D1%80%D0%B0-%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B8-150386902.jpg"
+             class="img-fluid" style="width:94%;">
+      </div>
+      <div class="form-group col-sm-6 col-md-6">
+        <img src="https://lh3.googleusercontent.com/proxy/28DWJbxtruChWQBFtQFhtZhnUuJ51zvOWTpL6RTSHEROpv2ZACWjR9nKzUADNbB4iqxx2Md4nZ520G5sI2cYtIiFEYFJDBxppWc1pDx3GvgNx17HmeWLmr0MGNGTlmP97vrW"
+             class="img-fluid" style="width:94%;">
+      </div>
+      <div class="form-group col-sm-6 col-md-6">
+        <img src="https://sntch.com/uploads/2019/04/phlBSMfloHuArwY8GfqT2g.jpg"
+             class="img-fluid" style="width:94%;">
+      </div>
+      <div class="form-group col-sm-6 col-md-6">
+        <img src="https://lh3.googleusercontent.com/proxy/VoA4-5IJ5lujuUhUmYLAs4y-z9Z9eWwltNbm793NdsIPZd00BLJh01tcjRpP2pnDHqq5eiU7wufHM-wYVmXxygZXq2H2sqJZ07jALF0yPjofrJ91eiCP9PtxwdQWfe_25CCo"
+             class="img-fluid" style="width:94%;">
+      </div>
+    </div>
+    <div style="margin-top: -20px;">
+      <h2>About library</h2>
+
+      <p>A library is a curated collection of sources of information and similar resources, selected by experts and made accessible to a defined community for reference or borrowing, often in a quiet environment conducive to study. It provides physical or digital access to material, and may be a physical location or a virtual space, or both. A library's collection can include books, periodicals, newspapers, manuscripts, films, maps, prints, documents, microform, CDs, cassettes, videotapes, DVDs, Blu-ray Discs, e-books, audiobooks, databases, and other formats. Libraries range widely in size up to millions of items. In Latin and Greek, the idea of a bookcase is represented by Bibliotheca and Bibliothēkē (Greek: βιβλιοθήκη): derivatives of these mean library in many modern languages, e.g. French bibliothèque.</p>
+    </div>
+  </div>
+
+</div>
+
 
 {% endblock %}

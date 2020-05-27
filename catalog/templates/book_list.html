@@ -1,22 +1,82 @@
 {% extends "base_generic.html" %}
-
+{% load bootstrap %}
+{% load widget_tweaks %}
 {% block content %}
-    <h1>Book List</h1>
+<h1>Book List</h1>
 
-    {% if book_list %}
-    <ul>
+<!--<form method="GET">-->
+<!--  {{ filter.form|bootstrap }}-->
+<!--  <button type="submit" class="btn btn-primary">Search</button>-->
+<!--</form>-->
+<style>.well{
+  max-width:76%;
+  padding: 30px;
+  margin:auto;
+  margin-bottom: 30px;
+}
 
-      {% for book in book_list %}
-      <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
-      </li>
-      {% endfor %}
+</style>
 
-    </ul>
-    {% else %}
-      <p>There are no books in the library.</p>
-    {% endif %}
+<form method="get">
+  <div class="well">
+    <h4 style="margin-top: 0">Filter</h4>
+    <div class="row">
+      <div class="form-group col-sm-4 col-md-3">
+        {{ filter.form.title__icontains.label_tag }}
+        {% render_field filter.form.title__icontains class="form-control" %}
+      </div>
+      <div class="form-group col-sm-4 col-md-3">
+        {{ filter.form.genre__name__icontains.label_tag }}
+        {% render_field filter.form.genre__name__icontains class="form-control" %}
+      </div>
+      <div class="form-group col-sm-4 col-md-3">
+        {{ filter.form.isbn__icontains.label_tag }}
+        {% render_field filter.form.isbn__icontains class="form-control" %}
+      </div>
+      <div class="form-group col-sm-4 col-md-3">
+        {{ filter.form.author.label_tag }}
+        {% render_field filter.form.author class="form-control" %}
+      </div>
+      <div class="form-group col-sm-4 col-md-3">
+        {{ filter.form.language.label_tag }}
+        {% render_field filter.form.language class="form-control" %}
+      </div>
+      <!--Ordering-->
+      <div class="form-group col-sm-4 col-md-3">
+        {{ filter.form.ordering.label_tag }}
+        {% render_field filter.form.ordering class="form-control" %}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+  </div>
+</form>
 
-    {% include "paginate_generic.html" %}
 
+{% if filter.qs %}
+<div class="row">
+  {% for book in filter.qs %}
+  <div class="form-group col-sm-4 col-md-3">
+    <div style="min-width: 300px;">
+      {% if book.image %}
+      <img src="{{ book.image.url }}" class="img-fluid" style="height:265px; width:173px;">
+      <br>
+      {% endif %}
+      <div style="">
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+        <br><br>
+        <p>{{book.author}}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% else %}
+<p>There are no books in the library.</p>
+{% endif %}
+
+{% include "paginate_generic.html" %}
 {% endblock %}

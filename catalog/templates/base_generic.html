@@ -11,7 +11,6 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-
 <body>
 
 <div class="container-fluid">
@@ -21,11 +20,11 @@
       {% block sidebar %}
       <ul class="sidebar-nav">
         {% if user.is_authenticated %}
-        <li>User: {{ user.get_username }}</li>
+        <li><p>User: {{ user.get_username }}</p></li>
         <li><a href="{% url 'my-borrowed' %}">My borrowed</a></li>
         {% if perms.catalog.can_mark_returned %}
           <br>
-          <li>Staff</li>
+          <li><p>Staff</p></li>
           <li><a href="{% url 'list-borrowed' %}">All borrowed</a></li>
           <li><a href="{% url 'author_create' %}">Add an Author</a></li>
           <li><a href="{% url 'book_create' %}">Add a book</a></li>
